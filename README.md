@@ -5,7 +5,8 @@
 Built as a set of Java Spring Boot REST APIs, this project provides a comprehensive backend for a shopping application using a microservices architecture. The system is composed of independent services for order management, inventory, product catalog, and an API Gateway for secure, unified access. The application leverages Spring Boot, Spring Data JPA (MySQL), Spring Data MongoDB, Spring Cloud Gateway, and Keycloak for OAuth2-based security. Each service is containerized with Docker and can be run and scaled independently.
 
 **Key Features:**
-- **API Gateway**: Central entry point, routing, and OAuth2 resource server using Keycloak (client credentials flow for Postman/CLI).
+- **API Gateway**: Central entry point, routing, and OAuth2 resource server validating JWT tokens.
+- **Keycloak**:  Authorization Server (authenticates, issues tokens)
 - **Order Service**: Place, view, and manage customer orders. Interacts with Inventory Service to check stock Using Spring Cloud OpenFiegn client.
 - **Inventory Service**: Track and update product stock and availability.
 - **Product Service**: Manage product catalog and search.
@@ -26,7 +27,7 @@ Built as a set of Java Spring Boot REST APIs, this project provides a comprehens
 - **Spring Boot 3.x** – Microservice development.
 - **Spring Data JPA** – Relational persistence (MySQL).
 - **Spring Data MongoDB** – NoSQL persistence (MongoDB).
-- **Spring Cloud Gateway** – API Gateway and routing.
+- **Spring Cloud Gateway** – API Gateway and routing. Resource server for OAuth2.
 - **Spring Cloud OpenFeign** – Declarative REST client for inter-service communication.
 - **Keycloak** – OAuth2 authorization server.
 - **Maven** – Build tool and dependency management.
