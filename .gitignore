@@ -1,0 +1,6 @@
+# Database-related ignores
+*/mysql_data/
+*.sock
+*.db
+*.sqlite
+*.log
