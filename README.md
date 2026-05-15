@@ -1,7 +1,5 @@
 # Project: Shopping App Microservices Backend (Java, Spring Boot, Maven, Docker)
 
-**Repo:** _[Add your repository link here]_
-
 ## Overview
 
 Built as a set of Java Spring Boot REST APIs, this project provides a comprehensive backend for a shopping application using a microservices architecture. The system is composed of independent services for order management, inventory, product catalog, and an API Gateway for secure, unified access. The application leverages Spring Boot, Spring Data JPA (MySQL), Spring Data MongoDB, Spring Cloud Gateway, and Keycloak for OAuth2-based security. Each service is containerized with Docker and can be run and scaled independently.
