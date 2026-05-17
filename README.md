@@ -2,7 +2,7 @@
 
 ## Overview
 
-Built as a set of Java Spring Boot REST APIs, this project provides a comprehensive backend for a shopping application using a microservices architecture. The system is composed of independent services for order management, inventory, product catalog, and an API Gateway for secure, unified access. The application leverages Spring Boot, Spring Data JPA (MySQL), Spring Data MongoDB, Spring Cloud Gateway, and Keycloak for OAuth2-based security. Each service is containerized with Docker and can be run and scaled independently.
+Built as a set of Java Spring Boot REST APIs, this project provides a comprehensive backend for a shopping application using a microservices architecture. The system is composed of independent services for order management, inventory, product catalog, and an API Gateway for secure, unified access. The application leverages Spring Boot, Spring Data JPA (MySQL), Spring Data MongoDB, Spring Cloud Gateway, and Keycloak for OAuth2-based security. Resilience patterns (Circuit Breaker, Retry, TimeLimiter) are applied via Resilience4j to protect gateway calls and inter-service communication. Each service is containerized with Docker and can be run and scaled independently.
 
 **Key Features:**
 - **API Gateway**: Central entry point, routing, and OAuth2 resource server validating JWT tokens.
@@ -12,7 +12,7 @@ Built as a set of Java Spring Boot REST APIs, this project provides a comprehens
 - **Product Service**: Manage product catalog and search.
 - **Service Isolation**: Each service has its own database and can be developed, deployed, and scaled independently.
 - **Containerized Databases**: MySQL for order/inventory, MongoDB for products, all orchestrated via Docker Compose.
-
+- **Resilience & Fault Tolerance**: Circuit Breaker, Retry, and TimeLimiter patterns (via Resilience4j) protect the API Gateway and inter-service calls against transient failures and cascading outages.
 ## Main Components
 
 - **User Authentication & Authorization**: OAuth2(Client Credentials flow) with Keycloak, API Gateway as resource server.
@@ -20,7 +20,7 @@ Built as a set of Java Spring Boot REST APIs, this project provides a comprehens
 - **Inventory Management**: Stock tracking, updates, and availability checks.
 - **Product Catalog**: CRUD operations and product search.
 - **API Security**: All endpoints secured via Bearer JWT tokens.
-
+- **Resilience & Fault Tolerance**: Resilience4j (circuit breaker, retry, timelimiter) is used across services and the gateway to improve availability and limit cascading failures.
 ## Tools/Software and Processes
 
 - **Java 21** – OOP, records, streams, lambdas, generics, etc.
@@ -29,12 +29,12 @@ Built as a set of Java Spring Boot REST APIs, this project provides a comprehens
 - **Spring Data MongoDB** – NoSQL persistence (MongoDB).
 - **Spring Cloud Gateway** – API Gateway and routing. Resource server for OAuth2.
 - **Spring Cloud OpenFeign** – Declarative REST client for inter-service communication.
+- **Resilience4j** – Fault tolerance library (circuit breaker, retry, timelimiter) used to protect remote calls.
 - **Keycloak** – OAuth2 authorization server.
 - **Maven** – Build tool and dependency management.
 - **Docker & Docker Compose** – Containerization and orchestration.
 - **JUnit, Testcontainers, RestAssured, WireMock** – Unit, integration testing and mocking.
-- **IntelliJ IDEA** – Recommended IDE.
-
+- **IntelliJ IDEA**
 ## Project Structure
 
 ```
@@ -78,8 +78,3 @@ docker-compose up -d
 
 - Database data directories (e.g., `mysql_data/`) are ignored in version control.
 - Each service is fully independent and can be scaled or updated separately.
-
----
-
-Let me know if you want to add a repository link, example API requests, or more details about any service!
-
